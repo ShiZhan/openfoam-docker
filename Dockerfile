@@ -10,7 +10,7 @@ RUN apt-get update && apt-get -yq install openfoam5 && \
 RUN echo "source /opt/openfoam5/etc/bashrc" >> /root/.bashrc
 
 RUN mv /usr/bin/mpirun /usr/bin/mpirun.ori && \
-    echo "/usr/bin/mpirun.ori --allow-run-as-root $@" > /usr/bin/mpirun && \
+    echo "/usr/bin/mpirun.ori --allow-run-as-root \$@" > /usr/bin/mpirun && \
     chmod 777 /usr/bin/mpirun
 
 VOLUME ["/cases"]
